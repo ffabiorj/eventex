@@ -115,5 +115,5 @@ dmypy.json
 .pyre/
 
 /venv
-
+.idea/
 .DS_Store
