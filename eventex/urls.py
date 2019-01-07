@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 from core.views import home
+from subscriptions.views import subscribe
 
 urlpatterns = [
     path('', home, name='index'),
+    path('inscricao/', subscribe, name='subscribe'),
     path('admin/', admin.site.urls),
 ]
