@@ -114,7 +114,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+.venv/
 venv/
 .idea/
 .DS_Store
 staticfiles/
+.Pipfile
+.Pipfile.lock
+
