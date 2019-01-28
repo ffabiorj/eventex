@@ -121,4 +121,5 @@ venv/
 staticfiles/
 .Pipfile
 .Pipfile.lock
+.ipynb_checkpoints/
 
