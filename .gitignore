@@ -123,3 +123,4 @@ staticfiles/
 .Pipfile.lock
 .ipynb_checkpoints/
 
+.vscode/
