@@ -20,6 +20,17 @@
             <p><a class="btn-basic btn-blue" data-scroll href="#register">Garanta a sua vaga!</a></p>
         </div>
     </section>
+    <section id="speakers">
+        <div class="speakers text-align-center row desktop-8 padding-bottom-2 container">
+            <h2>Palestrans Convidados</h2>
+            {% for speak in speakers  %}
+            <div class="desktop-4">
+                <img src="{{ speak.photo }}" alt="{{ speak.name }}">
+                <h4>{{ speak.name }}</h4>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
 
     <!-- SPONSORS -->
     <section id="sponsors">
