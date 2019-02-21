@@ -26,7 +26,10 @@
             {% for speak in speakers  %}
             <div class="desktop-4">
                 <img src="{{ speak.photo }}" alt="{{ speak.name }}">
-                <h4>{{ speak.name }}</h4>
+                <h4><a href="{{ speak.get_absolute_url }}">
+                        {{ speak.name }}</a>
+                </h4>
+
             </div>
             {% endfor %}
         </div>
