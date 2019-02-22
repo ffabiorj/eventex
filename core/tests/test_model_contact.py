@@ -10,13 +10,13 @@ class ContactMedelTest(TestCase):
             photo='http://hbn.link/hb-pic'
         )
     def test_email(self):
-        contact = Contact.objects.create(speaker=self.speaker, kind='E',
+        contact = Contact.objects.create(speaker=self.speaker, kind=Contact.EMAIL,
                                          value='fabio@gmail.com.net')
 
         self.assertTrue(Contact.objects.exists())
 
     def test_phone(self):
-        contact = Contact.objects.create(speaker=self.speaker, kind='P',
+        contact = Contact.objects.create(speaker=self.speaker, kind=Contact.PHONE,
                                          value='21-3333-3333')
 
         self.assertTrue(Contact.objects.exists())
@@ -27,6 +27,6 @@ class ContactMedelTest(TestCase):
         self.assertRaises(ValidationError, contact.full_clean)
 
     def test_str(self):
-        contact = Contact(speaker=self.speaker, kind='E',
+        contact = Contact(speaker=self.speaker, kind=Contact.EMAIL,
                                          value='fabio@gmail.com.net')
         self.assertEqual('fabio@gmail.com.net', str(contact))
