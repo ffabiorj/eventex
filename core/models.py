@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import resolve_url as r
+from core.managers import KindQuerySet, PeriodManager
 
 class Speaker(models.Model):
     name = models.CharField('nome', max_length=255)
@@ -27,9 +28,12 @@ class Contact(models.Model):
         ('E', 'Email'),
         ('P', 'Telefone'),
     )
-    speaker = models.ForeignKey('Speaker', on_delete=models.CASCADE, verbose_name='palestrante')
+    speaker = models.ForeignKey('Speaker', on_delete=models.CASCADE,
+                                verbose_name='palestrante')
     kind = models.CharField('tipo', max_length=1, choices=KINDS)
     value = models.CharField('valor', max_length=255)
+
+    objects = KindQuerySet.as_manager()
 
     class Meta:
         verbose_name = 'contato'
@@ -43,7 +47,9 @@ class Talk(models.Model):
     title = models.CharField('Título', max_length=200)
     start = models.TimeField('inínio', blank=True, null=True)
     description = models.TextField('Descrição', blank=True)
-    speakers = models.ManyToManyField('Speaker', verbose_name='pelestrante', blank=True)
+    speakers = models.ManyToManyField('Speaker', verbose_name='pelestrante',
+                                      blank=True)
+    objects = PeriodManager()
 
     class Meta:
         verbose_name = 'palestra'
